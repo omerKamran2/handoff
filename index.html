@@ -400,6 +400,97 @@
     color: var(--light);
   }
 
+  /* COST LIST */
+  .cost-list {
+    list-style: none;
+    margin-top: 36px;
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .cost-list li {
+    background: var(--surface);
+    padding: 22px 26px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    align-items: baseline;
+  }
+
+  @media (max-width: 640px) {
+    .cost-list li { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  .cost-list .amount {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .cost-list .what {
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .cost-list .what strong { color: var(--ink); font-weight: 600; }
+
+  /* OUTCOMES */
+  .outcomes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .outcomes { grid-template-columns: 1fr; }
+  }
+
+  .outcome {
+    background: var(--surface);
+    padding: 34px 28px;
+  }
+
+  .outcome .o-val {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .outcome h3 {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    letter-spacing: -0.01em;
+  }
+
+  .outcome p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .stats-note {
+    font-size: 12px;
+    color: var(--light);
+    margin-top: 16px;
+    font-style: italic;
+  }
+
   /* CTA */
   .cta-section {
     text-align: center;
@@ -490,12 +581,12 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tag">AI-powered handoff intelligence</div>
+    <div class="hero-tag">AI handoff briefs for support teams</div>
     <h1>Your chatbot hands off.<br>Your agents start <em>blind.</em></h1>
-    <p class="hero-sub">We generate an AI brief — summary, sentiment, intent, suggested action — and deliver it to your agents before they say hello.</p>
+    <p class="hero-sub">Every blind handoff costs you money — longer tickets, repeat contacts, customers who churn at the worst possible moment. Handoff gives your agents the full story before they say hello, so issues get resolved faster and cheaper.</p>
     <div class="hero-actions">
       <a href="#cta" class="btn-primary">Book a demo</a>
-      <a href="#how" class="btn-secondary">See how it works</a>
+      <a href="#outcome" class="btn-secondary">See the results</a>
     </div>
   </section>
 
@@ -504,21 +595,88 @@
   <!-- THE PROBLEM -->
   <section class="section">
     <div class="section-label">The problem</div>
-    <h2>78% of context is lost at handoff</h2>
-    <p>When your AI chatbot escalates to a human, the agent opens a blank ticket. The customer repeats everything. Handle time spikes. CSAT drops. Trust collapses — at the exact moment it matters most.</p>
+    <h2>What a lost handoff actually costs you</h2>
+    <p>When your bot escalates, the agent opens a blank ticket. The customer repeats everything the bot already heard. Every one of those minutes is on your payroll — and every frustrated customer is revenue walking out the door.</p>
+
+    <ul class="cost-list">
+      <li>
+        <span class="amount">+3 min</span>
+        <span class="what"><strong>of reconstruction on every escalated ticket.</strong> Multiply that by every handoff, every day, and you're paying a full salary just to rebuild context the bot already had.</span>
+      </li>
+      <li>
+        <span class="amount">1 in 4</span>
+        <span class="what"><strong>customers leave after one bad support experience.</strong> A clumsy handoff is exactly how a good customer becomes a former customer.</span>
+      </li>
+      <li>
+        <span class="amount">↑ AHT</span>
+        <span class="what"><strong>Average handle time climbs, and cost-per-resolution climbs with it</strong> — the precise number your Head of Support reports on every month.</span>
+      </li>
+    </ul>
 
     <div class="compare">
       <div class="compare-side before">
         <div class="compare-label">Without Handoff</div>
         <h3>Agent starts from zero</h3>
-        <p>Customer explains the issue again. Agent has no idea what the bot already tried. Average handle time: 8+ minutes. Customer frustrated before the conversation even begins.</p>
+        <p>Customer explains the issue again. The agent has no idea what the bot already tried. Longer tickets, higher cost to close, and a customer who's annoyed before the conversation even begins.</p>
       </div>
       <div class="compare-side after">
         <div class="compare-label">With Handoff</div>
         <h3>Agent starts informed</h3>
-        <p>Agent opens the ticket and sees: issue summary, customer sentiment, what the bot attempted, and a suggested resolution path. Handle time drops. Customer feels heard from the first word.</p>
+        <p>The agent opens the ticket and already sees the issue, the customer's mood, what the bot attempted, and the fastest path to resolve. Shorter tickets, lower cost, a customer who feels heard from the first word.</p>
       </div>
     </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- THE OUTCOME -->
+  <section class="section" id="outcome">
+    <div class="section-label">The outcome</div>
+    <h2>Agents start informed. The math changes.</h2>
+    <p>Give the agent the full story up front and every number that support is measured on moves in your favour — starting with the one on the invoice.</p>
+
+    <div class="outcomes">
+      <div class="outcome">
+        <div class="o-val">↓ Cost</div>
+        <h3>Tickets close faster</h3>
+        <p>Agents skip the reconstruction. Lower handle time means a lower cost to close every escalated ticket — straight off your support P&amp;L.</p>
+      </div>
+      <div class="outcome">
+        <div class="o-val">↑ FCR</div>
+        <h3>Customers stop repeating themselves</h3>
+        <p>The agent already knows what happened. More issues solved on first contact, fewer follow-up tickets clogging the queue.</p>
+      </div>
+      <div class="outcome">
+        <div class="o-val">↓ Churn</div>
+        <h3>You keep the customer</h3>
+        <p>Handoff is where trust breaks. Get it right and the at-risk customer stays — protecting revenue you already paid to win.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- THE MATH -->
+  <section class="section">
+    <div class="section-label">The math</div>
+    <h2>Do the math on your own team</h2>
+    <p>Take a team handling 1,000 escalations a month. Here's what blind handoffs quietly cost — and what context buys back.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-val">3 min</div>
+        <div class="stat-label">of reconstruction saved per escalated ticket</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">$1.5k+</div>
+        <div class="stat-label">reclaimed every month at 1,000 escalations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">&lt;1s</div>
+        <div class="stat-label">to generate and deliver each brief</div>
+      </div>
+    </div>
+    <p class="stats-note">Illustrative: 1,000 escalations &times; 3 min saved &times; ~$0.50 per agent-minute. Plug in your own volume on the call.</p>
   </section>
 
   <hr class="divider">
@@ -526,8 +684,8 @@
   <!-- HOW IT WORKS -->
   <section class="section" id="how">
     <div class="section-label">How it works</div>
-    <h2>One API call. Full context.</h2>
-    <p>Your chatbot fires a webhook when it escalates. We do the rest — enrich, summarize, and deliver to wherever your agents work.</p>
+    <h2>The technical part, in three steps</h2>
+    <p>For the engineers in the room: one webhook in, an AI brief out, delivered into the helpdesk your agents already live in. Your bot fires when it escalates — we handle the rest.</p>
 
     <div class="steps">
       <div class="step">
@@ -600,34 +758,10 @@
 
   <hr class="divider">
 
-  <!-- STATS -->
-  <section class="section">
-    <div class="section-label">Why it matters</div>
-    <h2>The numbers behind bad handoffs</h2>
-    <p>These are the metrics your Head of Support is already measured on. We move them in the right direction.</p>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-val">78%</div>
-        <div class="stat-label">of context lost at handoff</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">74%</div>
-        <div class="stat-label">of customers frustrated by repeating themselves</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">&lt;1s</div>
-        <div class="stat-label">to generate and deliver the brief</div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
   <!-- CTA -->
   <section class="cta-section" id="cta">
-    <h2>See it work with<br>your chatbot in 30 minutes</h2>
-    <p>We'll show you a live escalation — from your bot to a real ticket with an AI brief on it. No slides, no pitch deck, just the working product.</p>
+    <h2>See what one saved handoff<br>looks like in 30 minutes</h2>
+    <p>We'll run a live escalation — from your bot to a real ticket with an AI brief on it — and do the math on your ticket volume. No slides, no pitch deck, just the working product and the numbers.</p>
     <a href="https://calendly.com/omer-kamran100/30min" class="btn-primary" style="display: inline-block;">Book a 30-minute demo</a>
   </section>
 
